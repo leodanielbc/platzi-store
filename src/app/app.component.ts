@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'platzi-store';
+
+  items=['Leo','Daniel','Maria','Cris'];
+
+  addItem(){
+    this.items.push('Nuevo item');
+  }
+
+  deleteItem(index:number){
+    this.items.splice(index,1);
+  }
 }

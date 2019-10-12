@@ -2,7 +2,22 @@
 {{title}}
 
 <div *ngIf="title === 'leo'">
-  cumple la condición
+  Este es leo
+</div>
+
+<div *ngIf="title === 'juan'">
+  Este es juan
+</div>
+
+<div *ngIf="title === 'maria'">
+  Ella es Maria
+</div>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'leo'">Este es Leo</p>
+  <p *ngSwitchCase="'juan'">Este es Juan</p>
+  <p *ngSwitchCase="'maria'">Ella es Maria</p>
+  <p *ngSwitchDefault>No hay elementos</p>
 </div>
 
 <button (click)="addItem()">Add Item</button>

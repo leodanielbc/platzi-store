@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 import {Product} from '../product.model';
 
@@ -8,11 +8,11 @@ import {Product} from '../product.model';
 })
 
 export class ProductComponent{
-    product: Product={
-            id:'1',
-            image:'assets/images/coladaMoradaBig2.jpg',
-            title:'Colada Morada',
-            price:2.50,
-            description:'Vaso grande'
-    };
+    @Input() product: Product; //Este componente va a recibir una propiedad desde otro componente.
+    @Output() productClicked: EventEmitter<any> = new EventEmitter();
+
+    addCart(){
+        console.log('añadir al carrito');
+        this.productClicked.emit(this.product.id);//se lanza el evento
+    }
 }

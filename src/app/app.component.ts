@@ -28,7 +28,7 @@ export class AppComponent {
     {
       id:'3',
       image:'assets/images/empanadas.jpg',
-      title:'Empenadas',
+      title:'Empanadas',
       price:0.25,
       description:'Empanadas de queso'
     },
@@ -47,5 +47,9 @@ export class AppComponent {
 
   deleteItem(index:number){
     this.items.splice(index,1);
+  }
+  //ejemplo del Output
+  clickProduct(id:number){
+    console.log('product: '+id)
   }
 }

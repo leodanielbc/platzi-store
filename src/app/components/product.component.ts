@@ -21,6 +21,8 @@ export class ProductComponent implements OnInit, DoCheck {
     @Input() product: Product; // Este componente va a recibir una propiedad desde otro componente.
     @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
+    today = new Date();
+
     constructor() {
         console.log('1. constructor');
     }

@@ -12,7 +12,7 @@ export class DemoComponent implements OnInit {
 
   power = 10;
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
 

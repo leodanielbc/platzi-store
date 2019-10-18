@@ -17,7 +17,7 @@ import { Product } from '../product.model';
     styleUrls: ['./product.component.scss']
 })
 
-export class ProductComponent implements OnInit, DoCheck {
+export class ProductComponent implements OnInit {
     @Input() product: Product; // Este componente va a recibir una propiedad desde otro componente.
     @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
@@ -36,9 +36,9 @@ export class ProductComponent implements OnInit, DoCheck {
         console.log('3. ngOnInit'); // como buena practica se utiliza para hacer llamadas de servicios de datos
     }
 
-    ngDoCheck() {
-        console.log('4. ngDoCheck'); // ejecuta el cambio o deteccion de forma forzada
-    }
+    // ngDoCheck() {
+    //     console.log('4. ngDoCheck'); // ejecuta el cambio o deteccion de forma forzada
+    // }
 
     OnDestroy() {
         console.log('5. ngOnDestroy'); // este metodo se utiliza para destruir elementos(borrar datos de memoria)

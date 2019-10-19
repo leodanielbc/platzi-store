@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CartComponent } from './components/cart/cart.component';
   ],
   imports: [
     CommonModule,
-    RouterModule // para que las rutas de acceso (header > nav) se activen
+    RouterModule, // para que las rutas de acceso (header > nav) se activen
+    MaterialModule
   ]
 })
 export class SharedModule { }

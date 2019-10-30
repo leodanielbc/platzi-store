@@ -28,5 +28,17 @@ export class ProductDetailComponent implements OnInit {
       this.product = product;
     });
   }
+  createProduct(){
+    const newProduct: Product = {
+      id: '22',
+      title: 'new Object from Angular',
+      image: 'assets/images/coladaMoradaBig2.jpg',
+      price: 1,
+      description: 'nuevo producto'
+    }
+    this.productService.createProduct(newProduct).subscribe(product=>{
+      console.log(product);
+    });
+  }
 
 }

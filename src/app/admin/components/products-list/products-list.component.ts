@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/core/services/products/products.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { Product } from 'src/app/product.model';
+import { Product } from 'src/app/core/models/product.model';
 
 @Component({
   selector: 'app-products-list',

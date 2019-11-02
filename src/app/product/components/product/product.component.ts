@@ -9,7 +9,8 @@ import {
         DoCheck
     } from '@angular/core';
 
-import { Product } from '../../../product.model';
+import { Product } from '../../../core/models/product.model';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 
 @Component({
     selector: 'app-product',
@@ -23,7 +24,9 @@ export class ProductComponent implements OnInit {
 
     today = new Date();
 
-    constructor() {
+    constructor(
+        private cartService: CartService
+    ) {
         console.log('1. constructor');
     }
 
@@ -46,6 +49,7 @@ export class ProductComponent implements OnInit {
 
     addCart() {
         console.log('añadir al carrito');
-        this.productClicked.emit(this.product.id); // se lanza el evento
+        // this.productClicked.emit(this.product.id); // se lanza el evento
+        this.cartService.addCart(this.product)
     }
 }

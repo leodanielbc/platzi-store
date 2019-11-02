@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProductsService } from 'src/app/core/services/products/products.service';
+import { Router } from '@angular/router';
+import { MyValidators } from 'src/app/utils/validators';
 
 @Component({
   selector: 'app-form-product',
@@ -11,7 +14,9 @@ export class FormProductComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private productsService: ProductsService,
+    private router: Router
   ) {
     this.buildForm();
   }
@@ -23,10 +28,21 @@ export class FormProductComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       title: ['', [Validators.required]],
-      price: ['', [Validators.required]],
+      price: ['', [Validators.required, MyValidators.isPriceValid]],
       image: [''],
       description: ['', [Validators.required]]
     });
+  }
+
+  saveProduct(event: Event){
+    event.preventDefault(); // este evita recargarla pagina del formulario y ejecuta nuestra operacion con normalidad
+    if(this.form.valid){
+      const product = this.form.value;
+      this.productsService.createProduct(product).subscribe(newProduct => {
+        console.log(newProduct);
+        this.router.navigate(['./admin/products']);
+      });
+    }
   }
 
 }

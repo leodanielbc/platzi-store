@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CartPipe } from './pipes/cart/cart.pipe';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    CartPipe
   ],
   exports: [
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    CartPipe
   ],
   imports: [
     CommonModule,

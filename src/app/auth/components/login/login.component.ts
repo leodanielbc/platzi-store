@@ -35,7 +35,14 @@ export class LoginComponent implements OnInit {
   login(event: Event){
     event.preventDefault(); // este evita recargarla pagina del formulario y ejecuta nuestra operacion con normalidad
     if(this.form.valid){
-      const product = this.form.value;
+      const value = this.form.value;
+      this.authService.login(value.email, value.password)
+        .then(() => {
+          this.router.navigate(['/admin']);
+        })
+        .catch((error) => {
+          alert('No es valido');
+        });
     }
   }
 

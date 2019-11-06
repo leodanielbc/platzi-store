@@ -10,7 +10,17 @@ export class AuthService {
     private af: AngularFireAuth
   ) { }
 
-  createUser(email: string, password: string){
+  createUser(email: string, password: string) {
     return this.af.auth.createUserWithEmailAndPassword(email, password);
+  }
+  login(email: string, password: string) {
+    return this.af.auth.signInWithEmailAndPassword(email, password);
+  }
+  logout() {
+    return this.af.auth.signOut();
+  }
+  // retorna el estado del usuario (si esta o no logueado)
+  hasUser() {
+    return this.af.authState;
   }
 }

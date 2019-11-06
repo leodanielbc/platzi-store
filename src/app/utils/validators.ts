@@ -11,4 +11,11 @@ export class MyValidators {
         }
         return null;
     }
+
+    static isPasswordValid(control: AbstractControl) {
+        const value: string = control.value;
+        if (value.length<6){
+            return {password_invalid: true};
+        }
+    }
 }
